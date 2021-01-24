@@ -1,6 +1,6 @@
 node_modules/
 .idea/
 # keep grafana, will be intreseting to see contents in repo
-#grafana/data/
+grafana/data/
 prometheus/data/
 .DS_Store
