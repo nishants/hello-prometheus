@@ -71,15 +71,16 @@ If we restart the docker container, we will loose the created dashboards and pan
 ```bash
 # Create data dir
 mkdir -p grafana/data
+mv grafana-data-sources.yml grafana/data-sources.yml
 
 # Run image with mounted volume
 docker run -p 3000:3000 \
 	-v $(pwd)/grafana/data:/var/lib/grafana \
-	 -e GF_AUTH_DISABLE_LOGIN_FORM=true \
+  -e GF_AUTH_DISABLE_LOGIN_FORM=true \
   -e GF_AUTH_ANONYMOUS_ENABLED=true \
   -e GF_AUTH_ANONYMOUS_ORG_ROLE=Admin \
-  -v $(pwd)/grafana-data-sources.yml:/etc/grafana/provisioning/datasources/datasources.yml \
-	grafana/grafana
+  -v $(pwd)/grafana/data-sources.yml:/etc/grafana/provisioning/datasources/datasources.yml \
+	grafana/grafana:7.3.7
 ```
 
 

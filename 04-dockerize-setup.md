@@ -65,6 +65,12 @@
 
 - Now run docker-compose to check if prometheus is working
 
+  ```bash
+  docker-compose -f ./docker-compose.yml up --build
+  ```
+
+  
+
 - Check the page http://localhost:9090/targets to ensure prometheus is running and can reach out node app.
 
   ![image-20210124165258492](docs/images/image-20210124165258492.png)
