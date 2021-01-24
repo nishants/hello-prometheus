@@ -28,7 +28,18 @@
   > - Dockerize web serivce
   > - Create `docker-compose.yml`
 
-- [Add custom metrics]()
+- ***[Add custom metrics](./05-custom-metrics.md)***
+
+  > - Create a custom label for all metrics
+  > - Create a counter
+  > - Create a gauge
+  > - Create a historgram 
+  > - Create a historgram with percentiles bucket
+  > - Create a summary
+
+
+
+
 
 **TODO** 
 
