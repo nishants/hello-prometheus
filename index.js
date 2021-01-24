@@ -1,6 +1,7 @@
 const http = require('http');
 const url = require('url');
 const client = require('prom-client');
+const customMetrics = require('./custom-metrics');
 
 // Create registry
 const Registry = client.Registry;
@@ -10,7 +11,7 @@ const registery = new Registry();
 const collectDefaultMetrics = client.collectDefaultMetrics;
 collectDefaultMetrics({ register: registery });
 
-require('./custom-metrics')(registery)
+customMetrics(registery)
 
 const server = http.createServer(async (req, res) => {
   const route = url.parse(req.url).pathname;
