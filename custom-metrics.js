@@ -29,6 +29,7 @@ module.exports = (registry) => {
 
   registry.registerMetric(gauge);
 
+  // Add a histogram without buckets
   const histogram = new client.Histogram({
     name: 'custom_historgram_no_buckets',
     help: 'Custom: Random values in histogram with no buckets',
@@ -36,6 +37,7 @@ module.exports = (registry) => {
   setInterval(() => histogram.observe(Math.floor(Math.random() * 100)));
   registry.registerMetric(histogram);
 
+  // Add a histogram with buckets
   const histogramWithBucket = new client.Histogram({
     name: 'custom_historgram_with_buckets',
     help: 'Custom: Random values in histogram with buckets "percentiles: [0.1,0.25, 0.5, 0.9, 0.99]"',
@@ -43,4 +45,14 @@ module.exports = (registry) => {
   });
   setInterval(() => histogramWithBucket.observe(Math.floor(Math.random() * 1000)));
   registry.registerMetric(histogramWithBucket);
+
+  // Add a summary
+  const summary = new client.Summary({
+    name: 'custom_summary',
+    help: 'Custom: summary with random values',
+    maxAgeSeconds: 600,
+    ageBuckets: 5,
+  });
+  setInterval(() => summary.observe(Math.floor(Math.random() * 100)));
+  registry.registerMetric(summary);
 }

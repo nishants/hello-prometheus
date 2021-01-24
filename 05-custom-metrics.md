@@ -122,3 +122,49 @@ custom_historgram_with_buckets_sum{version="v1"} 16023700
 custom_historgram_with_buckets_count{version="v1"} 32252
 ```
 
+
+
+
+
+### Summary
+
+- Used for sliding window observation
+
+- Pretty much like historgram but use if for more temporary trends 
+
+- e.g. like heartbreat live monitor where we just want to know how heartbreat is trending in last 5 minutes and not interested in last 1 day 
+
+  ```javascript
+  // Add a summary
+  const summary = new client.Summary({
+    name: 'custom_summary',
+    help: 'Custom: summary with random values',
+    maxAgeSeconds: 600,
+    ageBuckets: 5,
+  });
+  setInterval(() => summary.observe(Math.floor(Math.random() * 100)));
+  registry.registerMetric(summary);
+  ```
+
+  
+
+- This is published as : 
+
+  ```properties
+  # HELP custom_summary Custom: summary with random values
+  # TYPE custom_summary summary
+  custom_summary{quantile="0.01",version="v1"} 0.528
+  custom_summary{quantile="0.05",version="v1"} 4.697297297297297
+  custom_summary{quantile="0.5",version="v1"} 48.48780487804878
+  custom_summary{quantile="0.9",version="v1"} 89.30217391304348
+  custom_summary{quantile="0.95",version="v1"} 94.29148936170213
+  custom_summary{quantile="0.99",version="v1"} 98.51644444444445
+  custom_summary{quantile="0.999",version="v1"} 99
+  custom_summary_sum{version="v1"} 216748
+  custom_summary_count{version="v1"} 4426
+  ```
+
+  
+
+
+
