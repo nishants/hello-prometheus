@@ -1,0 +1,9 @@
+{
+  "name": "hello-prometheus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nishants/hello-prometheus.git",
+  "author": "nishant <nishant.singh87@gmail.com>",
+  "license": "MIT",
+  "dependencies": {}
+}
