@@ -21,12 +21,22 @@
   > - Run Grafana with docker
   > - Add prometheus as data source
   > - Create a dashboard
+  > - Mount local dir to persist data
 
   
 
 **TODO** 
 
-- [ ] Create a web app
+- [x] Create a web app
+
+- [x] Run prometheus as docker container
+
+- [x] Create dashboard with Grafana
+
+- [ ] Persist data on mounted volume 
+
+  - [ ] grafana
+  - [ ] prometheus
 
 - [ ] Publish metrics of each type 
   - [ ] counter
@@ -37,7 +47,7 @@
   
 - [ ] Explore running queries
 
-- [ ] Create dashboard with Grafana
+- [ ] 
 
 - [ ] Simulate
 
@@ -53,4 +63,11 @@
 
 
 
-Checkout : https://codersociety.com/blog/articles/nodejs-application-monitoring-with-prometheus-and-grafana
+Checkout :
+
+- https://grafana.com/docs/grafana/latest/administration/configure-docker/
+- https://codersociety.com/blog/articles/nodejs-application-monitoring-with-prometheus-and-grafana
+- https://github.com/coder-society/nodejs-application-monitoring-with-prometheus-and-grafana
+
+
+
