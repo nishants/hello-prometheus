@@ -47,3 +47,33 @@ Published as :
 second_increment{version="v1"} 50
 ```
 
+
+
+### Add a Gauge metric
+
+```javascript
+// Add a gauge metric
+// This can increase or decrease
+const gauge = new client.Gauge({
+  name: 'custom_gauge',
+  help: 'Custom: This increments every 1 second, reduces every 5 seconds by 2 and resets every 10 seconds'
+});
+
+setInterval(() => gauge.inc(1), 1000);
+setInterval(() => gauge.dec(10), 5000);
+setInterval(() => gauge.set(0), 10000);
+
+registry.registerMetric(gauge);
+```
+
+
+
+This is published as: 
+
+```properties
+
+# HELP custom_gauge Custom: This increments every 1 second, reduces every 5 seconds by 2 and resets every 10 seconds
+# TYPE custom_gauge gauge
+custom_gauge{version="v1"} -8
+```
+
