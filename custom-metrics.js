@@ -28,4 +28,11 @@ module.exports = (registry) => {
   setInterval(() => gauge.set(0), 10000);
 
   registry.registerMetric(gauge);
+
+  const histogram = new client.Histogram({
+    name: 'custom_historgram_no_buckets',
+    help: 'Custom: Random values in histogram with no buckets',
+  });
+  setInterval(() => histogram.observe(Math.floor(Math.random() * 100)));
+  registry.registerMetric(histogram);
 }
