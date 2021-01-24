@@ -1,13 +1,12 @@
+***[Add custom metrics](./05-custom-metrics.md)***
 
-
-# Contents
+> 
 
 
 
 - ***[Create a web server](./01-setup-webservice.md)***
 
   > - Create a server with node
-  >
   > - Publish default metrics
 
 - ***[Setup Prometheus](./02-setup-prometheus.md)***
@@ -29,7 +28,7 @@
   > - Dockerize web serivce
   > - Create `docker-compose.yml`
 
-  
+- [Add custom metrics]()
 
 **TODO** 
 
@@ -47,12 +46,13 @@
 - [ ] Create `docker-compose.yml`
 
 - [ ] Publish metrics of each type 
+
   - [ ] counter
   - [ ] gauge
   - [ ] histogram
   - [ ] summary 
   - [ ] untyped
-  
+
 - [ ] Explore running queries
 
 - [ ] 
@@ -73,6 +73,7 @@
 
 Checkout :
 
+- https://github.com/siimon/prom-client
 - https://grafana.com/docs/grafana/latest/administration/configure-docker/
 - https://codersociety.com/blog/articles/nodejs-application-monitoring-with-prometheus-and-grafana
 - https://github.com/coder-society/nodejs-application-monitoring-with-prometheus-and-grafana

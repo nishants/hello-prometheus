@@ -10,6 +10,8 @@ const registery = new Registry();
 const collectDefaultMetrics = client.collectDefaultMetrics;
 collectDefaultMetrics({ register: registery });
 
+require('./custom-metrics')(registery)
+
 const server = http.createServer(async (req, res) => {
   const route = url.parse(req.url).pathname;
   if (route === '/metrics') {

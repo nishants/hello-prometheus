@@ -9,6 +9,7 @@ WORKDIR /app
 RUN yarn
 
 COPY index.js /app
+COPY custom-metrics.js /app
 
 EXPOSE 8080
 CMD [ "yarn", "start" ]
