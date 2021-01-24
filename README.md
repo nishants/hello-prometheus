@@ -59,6 +59,52 @@ yarn add prom-client
   metrics will come here
   ```
 
+
+
+### Publish default prometheus metric
+
+- Add the prometheus client to project : 
+
+  ```
+  yarn add prom-client
+  ```
+
+
+
+- Create a regitery for metrics in `index.js` itself
+
+  ```javascript
+  onst client = require('prom-client');
+  
+  // Create a Registry which registers the metrics
+  const register = new client.Registry();
+  
+  // Add a default label which is added to all metrics
+  register.setDefaultLabels({
+    app: 'nodejs-app'
+  });
+  
+  const server = http.createServer(async (req, res) => {//....
+  ```
+
+
+
+- Update the endpoint `/metrics` to publish default metrics captured by the client library: 
+
+  ```
+  
+  ```
+
+  
+
+  
+
+- Publish default metrics at the the `/metrics` port 
+
+  ```
+  
+  ```
+
   
 
 

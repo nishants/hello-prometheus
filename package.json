@@ -6,7 +6,9 @@
   "author": "nishant <nishant.singh87@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start" : "node index.js"
+    "start": "node index.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "prom-client": "^13.0.0"
+  }
 }

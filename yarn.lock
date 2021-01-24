@@ -2,3 +2,18 @@
 # yarn lockfile v1
 
 
+bintrees@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/bintrees/-/bintrees-1.0.1.tgz#0e655c9b9c2435eaab68bf4027226d2b55a34524"
+
+prom-client@^13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/prom-client/-/prom-client-13.0.0.tgz#7e883e1c10c2d471258d3acf2d386197ffc819bd"
+  dependencies:
+    tdigest "^0.1.1"
+
+tdigest@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/tdigest/-/tdigest-0.1.1.tgz#2e3cb2c39ea449e55d1e6cd91117accca4588021"
+  dependencies:
+    bintrees "1.0.1"
