@@ -35,4 +35,12 @@ module.exports = (registry) => {
   });
   setInterval(() => histogram.observe(Math.floor(Math.random() * 100)));
   registry.registerMetric(histogram);
+
+  const histogramWithBucket = new client.Histogram({
+    name: 'custom_historgram_with_buckets',
+    help: 'Custom: Random values in histogram with buckets "percentiles: [0.1,0.25, 0.5, 0.9, 0.99]"',
+    percentiles: [0.1,0.25, 0.5, 0.9, 0.99],
+  });
+  setInterval(() => histogramWithBucket.observe(Math.floor(Math.random() * 1000)));
+  registry.registerMetric(histogramWithBucket);
 }

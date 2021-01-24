@@ -89,8 +89,14 @@ custom_gauge{version="v1"} -8
 
   ![img](docs/images/Symmetric2.png)
 
-```
-
+```javascript
+const histogramWithBucket = new client.Histogram({
+  name: 'custom_historgram_with_buckets',
+  help: 'Custom: Random values in histogram with buckets',
+  percentiles: [0.1,0.25, 0.5, 0.9, 0.99],
+});
+setInterval(() => histogramWithBucket.observe(Math.floor(Math.random() * 1000)));
+registry.registerMetric(histogramWithBucket);
 ```
 
 
@@ -98,21 +104,21 @@ custom_gauge{version="v1"} -8
 This is published as : 
 
 ```properties
-# HELP custom_historgram_no_buckets Custom: Random values in histogram with no buckets
-# TYPE custom_historgram_no_buckets histogram
-custom_historgram_no_buckets_bucket{le="0.005",version="v1"} 581
-custom_historgram_no_buckets_bucket{le="0.01",version="v1"} 581
-custom_historgram_no_buckets_bucket{le="0.025",version="v1"} 581
-custom_historgram_no_buckets_bucket{le="0.05",version="v1"} 581
-custom_historgram_no_buckets_bucket{le="0.1",version="v1"} 581
-custom_historgram_no_buckets_bucket{le="0.25",version="v1"} 581
-custom_historgram_no_buckets_bucket{le="0.5",version="v1"} 581
-custom_historgram_no_buckets_bucket{le="1",version="v1"} 1107
-custom_historgram_no_buckets_bucket{le="2.5",version="v1"} 1642
-custom_historgram_no_buckets_bucket{le="5",version="v1"} 3367
-custom_historgram_no_buckets_bucket{le="10",version="v1"} 6197
-custom_historgram_no_buckets_bucket{le="+Inf",version="v1"} 56896
-custom_historgram_no_buckets_sum{version="v1"} 2815207
-custom_historgram_no_buckets_count{version="v1"} 56896
+# HELP custom_historgram_with_buckets Custom: Random values in histogram with buckets "percentiles: [0.1,0.25, 0.5, 0.9, 0.99]"
+# TYPE custom_historgram_with_buckets histogram
+custom_historgram_with_buckets_bucket{le="0.005",version="v1"} 37
+custom_historgram_with_buckets_bucket{le="0.01",version="v1"} 37
+custom_historgram_with_buckets_bucket{le="0.025",version="v1"} 37
+custom_historgram_with_buckets_bucket{le="0.05",version="v1"} 37
+custom_historgram_with_buckets_bucket{le="0.1",version="v1"} 37
+custom_historgram_with_buckets_bucket{le="0.25",version="v1"} 37
+custom_historgram_with_buckets_bucket{le="0.5",version="v1"} 37
+custom_historgram_with_buckets_bucket{le="1",version="v1"} 63
+custom_historgram_with_buckets_bucket{le="2.5",version="v1"} 96
+custom_historgram_with_buckets_bucket{le="5",version="v1"} 188
+custom_historgram_with_buckets_bucket{le="10",version="v1"} 350
+custom_historgram_with_buckets_bucket{le="+Inf",version="v1"} 32252
+custom_historgram_with_buckets_sum{version="v1"} 16023700
+custom_historgram_with_buckets_count{version="v1"} 32252
 ```
 
