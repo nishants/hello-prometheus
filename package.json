@@ -5,5 +5,8 @@
   "repository": "https://github.com/nishants/hello-prometheus.git",
   "author": "nishant <nishant.singh87@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start" : "node index.js"
+  },
   "dependencies": {}
 }
