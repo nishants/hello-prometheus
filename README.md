@@ -10,12 +10,12 @@
   >
   > - Publish default metrics
 
-- ***[Setup prometheus](./02-setup-prometheus)***
+- ***[Setup Prometheus](./02-setup-prometheus)***
 
   > - Run prometheus with docker
   > - Scrape data from nodejs url
 
-
+- [Setup Grafana](./03-setup-grafana)
 
 **TODO** 
 
