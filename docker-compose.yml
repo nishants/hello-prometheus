@@ -1,0 +1,19 @@
+
+services:
+  prometheus:
+    image: "prom/prometheus:v2.24.1"
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/etc/prometheus/data"
+    depends_on:
+      - node_app
+
+  node_app:
+    build:
+      context: ./
+    ports:
+      - "8080:8080"

@@ -15,6 +15,7 @@
   > - Run prometheus with docker
   > - Scrape data from nodejs url
   > - Run a query for metric
+  > - Persist prometheus time series data
 
 - ***[Setup Grafana](./03-setup-grafana.md)***
 
@@ -22,6 +23,11 @@
   > - Add prometheus as data source
   > - Create a dashboard
   > - Mount local dir to persist data
+
+- ***[Dockerize setup](./04-dockerize-setup.md)***
+
+  > - Dockerize web serivce
+  > - Create `docker-compose.yml`
 
   
 
@@ -33,10 +39,12 @@
 
 - [x] Create dashboard with Grafana
 
-- [ ] Persist data on mounted volume 
+- [x] Persist data on mounted volume 
 
-  - [ ] grafana
+  - [x] grafana
   - [ ] prometheus
+
+- [ ] Create `docker-compose.yml`
 
 - [ ] Publish metrics of each type 
   - [ ] counter
