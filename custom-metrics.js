@@ -48,16 +48,16 @@ module.exports = (registry) => {
 
   // Add a histogram with buckets
   const histogramWithBucketAndLabel = new client.Histogram({
-    labelNames: ["api", "instance"],
+    labelNames: ["api", "method"],
     name: 'custom_historgram_with_buckets_and_label',
     help: 'Custom: Random values in histogram with buckets "percentiles: [0.1,0.25, 0.5, 0.9, 0.99]"',
     percentiles: [0.1,0.25, 0.5, 0.9, 0.99],
   });
   setInterval(
     () => {
-      const instance = Math.random() > 0.25 ? "alpha": "beta";
+      const method = Math.random() > 0.25 ? "POST": "GET";
       const api = Math.random() > 0.5 ? "one": "two";
-      const labels = {api, instance};
+      const labels = {api, method};
       histogramWithBucketAndLabel.observe(labels, Math.floor(Math.random() * 1000))
     }
   );
