@@ -52,21 +52,23 @@
 - [x] Persist data on mounted volume 
 
   - [x] grafana
-  - [ ] prometheus
+  - [x] prometheus
 
-- [ ] Create `docker-compose.yml`
+- [x] Create `docker-compose.yml`
 
-- [ ] Publish metrics of each type 
+- [x] Publish metrics of each type 
 
-  - [ ] counter
-  - [ ] gauge
-  - [ ] histogram
-  - [ ] summary 
+  - [x] counter
+  - [x] gauge
+  - [x] histogram
+  - [x] summary 
   - [ ] untyped
 
-- [ ] Explore running queries
+- [ ] Visualize a historical data
 
-- [ ] 
+- [ ] Select dat in range
+
+- [ ] Explore running queries
 
 - [ ] Simulate
 

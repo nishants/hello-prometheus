@@ -57,7 +57,7 @@ yarn add prom-client
 
 
 
-- Create a regitery for metrics in `index.js` itself
+- Create a registery for metrics in `index.js` itself
 
   ```javascript
   const client = require('prom-client');

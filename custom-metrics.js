@@ -46,6 +46,22 @@ module.exports = (registry) => {
   setInterval(() => histogramWithBucket.observe(Math.floor(Math.random() * 1000)));
   registry.registerMetric(histogramWithBucket);
 
+  // Add a histogram with buckets
+  const histogramWithBucketAndLabel = new client.Histogram({
+    labelNames: ["api", "instance"],
+    name: 'custom_historgram_with_buckets_and_label',
+    help: 'Custom: Random values in histogram with buckets "percentiles: [0.1,0.25, 0.5, 0.9, 0.99]"',
+    percentiles: [0.1,0.25, 0.5, 0.9, 0.99],
+  });
+  setInterval(
+    () => {
+      const instance = Math.random() > 0.25 ? "alpha": "beta";
+      const api = Math.random() > 0.5 ? "one": "two";
+      const labels = {api, instance};
+      histogramWithBucketAndLabel.observe(labels, Math.floor(Math.random() * 1000))
+    }
+  );
+  registry.registerMetric(histogramWithBucketAndLabel);
   // Add a summary
   const summary = new client.Summary({
     name: 'custom_summary',
